@@ -1,6 +1,7 @@
 var express = require('express'),
   app = express(),
   todoRoutes = require('./routes/todos'),
+  port = process.env.PORT || 3000,
   bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
@@ -13,7 +14,7 @@ app.use('/api/todo', todoRoutes);
 app.get('/', function(req, res) {
   res.sendFile('index.html');
 });
-app.listen(3000, function() {
+app.listen(port, function() {
   console.log('Express listening', this.address().port);
   console.log('http://localhost:3000/');
 });
