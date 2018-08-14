@@ -1,9 +1,8 @@
-/* global $ */
 $(document).ready(function() {
   $.getJSON('/api/todo').then(addTodos);
 
   $('#todoInput').keypress(function(event) {
-    if (event.which == 13) {
+    if (event.which == 13 && document.getElementById("todoInput").value !== "") {
       createTodo();
     }
   });
@@ -30,9 +29,10 @@ function addTodo(todo) {
   newTodo.data('completed',todo.completed)
   if (todo.completed) {
     newTodo.addClass('done');
-  }
+  } 
   $('.list').append(newTodo);
 }
+
 function createTodo() {
   var usrInput = $('#todoInput').val();
   $.post('api/todo', { name: usrInput })
