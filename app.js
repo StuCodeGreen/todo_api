@@ -15,6 +15,6 @@ app.get('/', function(req, res) {
   res.sendFile('index.html');
 });
 app.listen(port, function() {
-  console.log('Express listening', this.address().port);
-  console.log('http://localhost:3000/');
+  console.log('Express listening', 'http://localhost:' +this.address().port);
+
 });

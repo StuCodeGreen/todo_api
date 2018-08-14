@@ -1,8 +1,8 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+url = process.env.DATABASE || "mongodb://localhost:27017/todo_api"
 mongoose.set('debug', true);
-
 mongoose.connect(
-  "mongodb://localhost:27017/todo_api",
+  url,
   { useNewUrlParser: true }
 );
 
